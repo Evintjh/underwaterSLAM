@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(bruce_slam)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
+
 
 find_package(catkin REQUIRED
   rospy
@@ -24,6 +25,8 @@ include_directories(
   ${libpointmatcher_INCLUDE_DIRS}
   ${PCL_INCLUDE_DIRS}
 )
+
+
 
 catkin_python_setup()
 

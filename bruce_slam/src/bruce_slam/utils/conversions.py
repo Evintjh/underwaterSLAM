@@ -199,11 +199,11 @@ def g2r(gtsam_obj:gtsam.Pose3) -> Pose:
         pose_msg.position.x = pose.x()
         pose_msg.position.y = pose.y()
         pose_msg.position.z = pose.z()
-        qw, qx, qy, qz = pose.rotation().quaternion()
-        pose_msg.orientation.x = qx
-        pose_msg.orientation.y = qy
-        pose_msg.orientation.z = qz
-        pose_msg.orientation.w = qw
+        q = pose.rotation().toQuaternion()
+        pose_msg.orientation.x = q.x()
+        pose_msg.orientation.y = q.y()
+        pose_msg.orientation.z = q.z()
+        pose_msg.orientation.w = q.w()
         return pose_msg
     else:
         raise NotImplementedError(

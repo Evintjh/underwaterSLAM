@@ -874,7 +874,7 @@ class SLAM(object):
 
         # Loop over the source frames
         # Eliminate frames that do not have points in the same field of view
-        sel = np.zeros(len(target_points), np.bool)
+        sel = np.zeros(len(target_points), np.bool_)
         for source_frame in source_frames:
 
             # pull the pose and covariance info
