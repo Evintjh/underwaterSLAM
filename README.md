@@ -18,8 +18,8 @@ numpy
 opencv_python
 rosbag
 rospy
-scikit_learn
 scipy
+scikit_learn
 sensor_msgs
 Shapely
 tf
