@@ -48,7 +48,7 @@ git checkout d478ef2eb33894d5f1fe84d8c62cec2fc6da818f
 - build your workspace with catkin build NOT catkin_make
 
 # Sample data
-We provide a rosbag data file to test and run the SLAM system. Available here: https://drive.google.com/file/d/1nmiFfyk8mVssLqgac7BOe4_RPBP6Wnc9/view?usp=sharing
+A rosbag data file is provided to test and run the SLAM system. Available here: https://drive.google.com/file/d/1nmiFfyk8mVssLqgac7BOe4_RPBP6Wnc9/view?usp=sharing
 
 # Running "Online"
 This will launch the SLAM system, then we will playback the data as if it is happening now. 
@@ -64,8 +64,20 @@ This runs our offline mode, great for quick testing/tuning of parameters.
 # Configuration
 This SLAM system has many parameters, please read the wiki for an explanation of each parameter. However, we highly recommend using the default parameters in the config folder. If you are to tune anything it would be the feature extraction node in feature.yaml. 
 
-# Current To Do list
-- enhance some of the cpp documentation for CFAR
+# IMPORTANT
+- For the SLAM system to work in real world or your personal simulation, you would require a base_link. This requires a urdf of the bot to be loaded with SLAM.
+- A simple urdf file for turtleboi bot is provided under: bruce_slam/urdf/turtleboi.urdf
+- Customise the urdf file to your own needs
+- in slam.launch, these lines have been added to initialise the urdf:
+```
+<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find bruce_slam)/urdf/turtleboi.urdf'" />
+
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="True"/>
+</node>
+
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+```
 
 # Citation
 ```
