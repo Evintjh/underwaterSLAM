@@ -2,9 +2,9 @@
 
 Hardware needed:
 - Occulus M750d imaging sonar
-- Rowe SeaPilot DVL
-- Vectornav 100 MEMS IMU
-- Bar30 pressure sensor
+- DVL
+- IMU
+- pressure sensor
 
 
 # Python Dependencies, note python-3
