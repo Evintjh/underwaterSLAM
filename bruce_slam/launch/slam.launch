@@ -59,8 +59,17 @@
         <node pkg="tf" name="map_to_world_tf_publisher" type="static_transform_publisher" args="0 0 0 0 0 3.14159 world map 100"/>
     </group>
 
-        <include file="$(find pointcloud_to_grid)/launch/demo.launch" /> 
+    
+    <!-- <include file="$(find pointcloud_to_grid)/launch/demo.launch" />  -->
 
     <node if="$(arg rviz)" type="rviz" name="rviz" pkg="rviz" args="-d $(find bruce_slam)/rviz/video.rviz" />
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find bruce_slam)/urdf/turtleboi.urdf'" />
+    
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="True"/>
+    </node>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 </launch>
